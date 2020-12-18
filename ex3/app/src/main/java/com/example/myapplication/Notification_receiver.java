@@ -32,7 +32,7 @@ public class Notification_receiver extends BroadcastReceiver {
                 "I don’t even have a ‘pla.'"
         };
         Random rand = new Random();
-        int randLocation = rand.nextInt(15); //Generating a random number to chose a quote from the array
+        int randLocation = rand.nextInt(quotesArray.length); //Generating a random number to chose a quote from the array
 
         Intent repeating_intent = new Intent(context,Repeating_activity.class);
         repeating_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
