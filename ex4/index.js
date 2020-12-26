@@ -6,10 +6,6 @@ const fs = require('fs');
 const readTasks = fs.readFileSync('TODO.json'); //reading the JSON file
 const allTasks = JSON.parse(readTasks); //parsing the JSON file into JSON object
 
-app.get('/',(req, res) => {
-    res.send('test');
-});
-
 //Return JSON of all tasks
 app.get('/tasks', (req, res) =>{
     res.send(allTasks);
@@ -29,7 +25,7 @@ app.get('/tasks/new', (req, res) => {
     //adding the new task to the tasks list
     else {
         allTasks[id] = task;
-        const writeTask = JSON.stringify(allTasks, null, 2); // null and 2 arguments are for arraging the file to look like JSON and not like a string 
+        const writeTask = JSON.stringify(allTasks, null, 2); // null and 2 arguments are for indentation
         fs.writeFile('TODO.json',writeTask,finished);
 
         function finished(err){
