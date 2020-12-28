@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 app.use(express.static('./public'));
 const fs = require('fs');
-app.listen(3000, () => console.log('Listening on port 3000'));
 
 app.get('/getfile', (req,res) => {
     let filename = req.query.filename || null;
@@ -19,3 +18,5 @@ app.get('/getfile', (req,res) => {
     //Reading the file and piping it to the res
     fs.createReadStream(`./public/${filename}`).pipe(res);
 });
+
+app.listen(3000, () => console.log('Listening on port 3000'));
